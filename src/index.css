@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased text-[#FF0087] bg-[#B0FFFA] overflow-x-hidden;
+  }
+  ::selection {
+    @apply bg-[#FF0087] text-[#B0FFFA];
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[#FF0087]/10 backdrop-blur-3xl border-4 border-[#FF7DB0];
+  }
+  .glass-card {
+    @apply bg-[#B0FFFA] backdrop-blur-3xl border-8 border-[#FF0087] shadow-2xl;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00F7FF] via-[#FF0087] to-[#00F7FF];
+  }
+}
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.custom-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
